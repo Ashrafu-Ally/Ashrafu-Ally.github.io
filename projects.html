@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Ashrafu Ally</title>
+  <meta name="description" content="Projects by Ashrafu Ally: computational materials research on metallic glasses, and this portfolio website.">
+  <meta name="theme-color" content="#0f6b5c">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ SITE HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="brand" href="index.html">Ashrafu Ally</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#journey">Journey</a></li>
+        <li><a href="index.html#alfred">Alfred</a></li>
+        <li><a href="index.html#honors">Honors</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#roles">Roles</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="page-intro" aria-labelledby="projects-title">
+      <h1 id="projects-title">Projects</h1>
+      <p>
+        Work at the intersection of materials science and computing. I'm still early in my
+        journey with software, so this page will grow as I learn and build.
+      </p>
+    </section>
+
+    <!-- ============ PROJECT 1: RESEARCH ============ -->
+    <article class="project" id="metallic-glass">
+      <header>
+        <p class="project-type">Research · Computational Materials Science</p>
+        <h2>Modeling Metallic Glass with Orbital-Free Density Functional Theory (OF-DFT)</h2>
+        <p class="meta">Summer Undergraduate Research Fellowship (SURF) 2026 · Advised by Dr. Zachary J. Knepp · Alfred University</p>
+      </header>
+
+      <figure>
+        <img src="assets/images/web/summer_26_research_with_Katie.jpg"
+             alt="Ashrafu with two fellow student researchers in front of research posters, including his poster on modeling metallic glass with OF-DFT" loading="lazy">
+        <figcaption>At the summer 2026 poster session.</figcaption>
+      </figure>
+
+      <h3>The problem</h3>
+      <p>
+        Metallic glasses are metals with no long-range atomic order. That disorder makes them
+        strong, corrosion-resistant, and conductive, which is promising for lightweight structural
+        materials. To understand how they form, you need to simulate many atoms. Conventional
+        Kohn-Sham DFT (KS-DFT) scales as O(N³), so it quickly becomes too expensive.
+      </p>
+
+      <h3>My approach</h3>
+      <p>
+        Orbital-free DFT scales as roughly O(N log N), so it can reach system sizes that KS-DFT
+        cannot. I used it to simulate how an aluminum-magnesium glass forms.
+      </p>
+      <ul>
+        <li><strong>System setup:</strong> a 6×6×6 fcc aluminum supercell (a = 4.05 Å) with 33% of sites
+            substituted by magnesium, giving a 216-atom Al-Mg model at a 67:33 composition, near the eutectic.</li>
+        <li><strong>Method:</strong> OF-DFT molecular dynamics in DFTpy with local LDA pseudopotentials
+            and the Wang-Teter kinetic energy density functional.</li>
+        <li><strong>Melt-quench protocol:</strong> NPT dynamics (Berendsen thermostat and barostat,
+            1 fs timestep), with the structure melted and held at 1,100 K. It was then quenched to
+            300 K in two ways: a stepped ramp (900 → 700 → 500 → 300 K) and a continuous linear ramp.</li>
+        <li><strong>Computing:</strong> jobs submitted and run on SDSC's Expanse supercomputer through
+            the Linux command line.</li>
+        <li><strong>Analysis:</strong> structures visualized in OVITO; radial distribution functions,
+            g(r), computed with a custom Python script.</li>
+      </ul>
+
+      <h3>Results</h3>
+      <ul>
+        <li>The continuous quench produced an amorphous glass with no long-range order.</li>
+        <li>The broad, split g(r) peaks match those of real amorphous Al-Mg alloys.</li>
+        <li>OF-DFT's cost stays orders of magnitude below KS-DFT beyond about 1,000 atoms, so the
+            approach can scale to realistic model sizes.</li>
+      </ul>
+
+      <h3>What's next</h3>
+      <ul>
+        <li>Extract a reliable glass transition temperature (T<sub>g</sub>).</li>
+        <li>Benchmark the structural and thermal results against KS-DFT.</li>
+        <li>Simulate larger supercells and extend the approach to other metallic glasses.</li>
+      </ul>
+
+      <p class="tools"><strong>Tools:</strong> DFTpy (OF-DFT) · Python · OVITO · SDSC Expanse (HPC) · Linux</p>
+      <p>
+        <a class="btn btn-primary" href="assets/documents/Ashrafu_poster.pdf" target="_blank" rel="noopener">View the full poster (PDF)</a>
+      </p>
+    </article>
+
+    <!-- ============ PROJECT 2: THIS WEBSITE ============ -->
+    <article class="project" id="portfolio-site">
+      <header>
+        <p class="project-type">Web Development · Learning Project</p>
+        <h2>This Portfolio Website</h2>
+        <p class="meta">2026 · HTML, CSS, JavaScript · Hosted on GitHub Pages</p>
+      </header>
+      <p>
+        I started this website to learn web development by building something real: a home for
+        my story, my research, and my work. It's written in semantic, accessible HTML and
+        designed to be responsive on phones and laptops.
+      </p>
+      <p>
+        <a class="btn btn-secondary" href="https://github.com/Ashrafu-Ally" target="_blank" rel="noopener">View on GitHub</a>
+      </p>
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Ashrafu Ally · Alfred, NY</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

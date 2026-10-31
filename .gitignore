@@ -1,0 +1,20 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Large raw media (export compressed versions into assets/ instead)
+*.mov
+*.avi
+*.mkv
+*.psd
+*.raw
+*.heic
+*.HEIC
+
+# Original full-size photos stay on this computer only: they are large and many
+# contain GPS location data. The site uses the web-sized, metadata-free copies
+# in assets/images/web/ instead.
+assets/images/*.*
+!assets/images/web/
+assets/profile/linkedIn_headshot.png
